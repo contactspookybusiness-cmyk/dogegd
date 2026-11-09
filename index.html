@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b16">
+  <title>dogegd | play</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="dogegd home">
+      <span class="brand-mark">D</span>
+      <span id="brandName">dogegd</span>
+    </a>
+    <nav>
+      <a class="nav-link active" href="#games">Games</a>
+      <a class="nav-link" href="#about">About</a>
+    </nav>
+    <button class="settings-button" id="openSettings" aria-label="Open settings" title="Settings">⚙</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span class="live-dot"></span> YOUR NEXT GAME IS ONE CLICK AWAY</div>
+      <h1>Enter the <span>game zone</span></h1>
+      <p class="hero-copy">Pick a game, jump in, and have fun.</p>
+      <a class="primary-button" href="#games">Explore games <span>↘</span></a>
+      <div class="hero-orbit orbit-a"></div>
+      <div class="hero-orbit orbit-b"></div>
+    </section>
+
+    <section class="games-section" id="games">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow muted">THE ARCADE</div>
+          <h2>Choose your game</h2>
+        </div>
+        <div class="game-count"><span id="gameCount">0</span> GAMES</div>
+      </div>
+
+      <div class="game-grid" id="gameGrid">
+        <button class="add-card" id="addGame">
+          <span class="plus">+</span>
+          <strong>Add a game</strong>
+          <small>Your next favorite goes here</small>
+        </button>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <span class="eyebrow muted">MADE TO PLAY</span>
+      <p id="aboutText">A little corner of the internet for your favorite games.</p>
+    </section>
+  </main>
+
+  <footer><span id="footerName">dogegd</span><span>Built for game time</span></footer>
+
+  <dialog id="settingsDialog" class="modal">
+    <form method="dialog" class="modal-top">
+      <div><span class="eyebrow muted">PERSONALIZE</span><h3>Site settings</h3></div>
+      <button class="icon-button" aria-label="Close">✕</button>
+    </form>
+    <label for="siteName">Website name</label>
+    <input id="siteName" maxlength="24" value="dogegd" placeholder="Your website name">
+    <p class="hint">Change the name shown around the website.</p>
+    <div class="modal-actions"><button type="button" class="secondary-button" id="resetSettings">Reset</button><button type="button" class="primary-button compact" id="saveSettings">Save changes</button></div>
+  </dialog>
+
+  <dialog id="gameDialog" class="modal">
+    <form method="dialog" class="modal-top">
+      <div><span class="eyebrow muted">NEW SLOT</span><h3>Add a game</h3></div>
+      <button class="icon-button" aria-label="Close">✕</button>
+    </form>
+    <label for="gameTitle">Game title</label>
+    <input id="gameTitle" maxlength="40" placeholder="e.g. Minecraft">
+    <label for="gameSubtitle">Studio or short description</label>
+    <input id="gameSubtitle" maxlength="60" placeholder="e.g. Mojang">
+    <label for="gameEmbed">Embed URL <span class="optional">(optional for now)</span></label>
+    <input id="gameEmbed" type="url" placeholder="https://example.com/game">
+    <p class="hint">Add the game details now. Send me your iframe code later and I can wire it into the game screen.</p>
+    <div class="modal-actions"><button type="button" class="secondary-button" id="cancelGame">Cancel</button><button type="button" class="primary-button compact" id="saveGame">Create slot</button></div>
+  </dialog>
+
+  <dialog id="playerDialog" class="player-modal">
+    <div class="player-top"><div><span class="eyebrow muted">NOW PLAYING</span><h3 id="playerTitle">Game</h3></div><button class="icon-button" id="closePlayer" aria-label="Close">✕</button></div>
+    <div class="player-frame" id="playerFrame"><div class="player-placeholder"><div class="play-symbol">▶</div><h3>Game slot ready</h3><p>Send the iframe code for this game and it can be added here.</p></div></div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
